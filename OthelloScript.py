@@ -1,9 +1,10 @@
-MODE = 't' #Mode, 't' for train, 'h' for play vs human, and 'm' for play vs machine
-PATH = None #Path, specify the folder which you want to save/read weights.
+MODE = 'm'  # Mode, 't' for train, 'h' for play vs human, and 'm' for play vs machine
+# Path, specify the folder which you want to save/read weights.
+PATH = './weights/'
 LR = 0.001 #Learning rate, only matters if you're training.
 RANDOM = True #Determines whether there will be randomness in your training.
 SAVE_FREQUENCY = 50 #After how many iterations do you want to save?
-WEIGHTS = [-1] #The list of weights to load. If training or vs human 
+WEIGHTS = [6, 12]  # The list of weights to load. If training or vs human
                    #make the list one length. If play vs machine, you HAVE TO make it length 2.
 TOTAL_EPISODES = 10000 #What's the total number of episodes do you want to run? Only used if training
 

@@ -10,7 +10,8 @@ import time
 import math
 
 #path = "/Users/student36/reinforcement-learning-othello/Weights_Folder4/"
-path = "/home/oliver/git/othello/reinforcement-learning-othello/Weights_Folder2/"
+# path = "/home/oliver/git/othello/reinforcement-learning-othello/Weights_Folder2/"
+path = "/Users/skynet/Repositories/AI/reinforcement-learning-othello/colab_models"
 
 controller = ReversiController(path, True, True, 2, epsilon = 10000)
 controller.load([1400, 1400])
@@ -157,4 +158,3 @@ b4.board = board10
 print(tree.alphabeta(b4, 3, -math.inf, math.inf, 1, 0))
 
 print(controller.population[0].model.predict(np.array([process(board11)])))
-

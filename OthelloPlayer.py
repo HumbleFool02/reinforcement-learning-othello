@@ -160,11 +160,11 @@ class OthelloPlayer:
 
     # Saves the model's weights.
     def save(self, s):
-        self.model.save_weights(s)
+        self.model.save_weights(s + ".weights.h5")
 
     # Loads the weights of a previous model.
     def load(self, s):
-        self.model.load_weights(s)
+        self.model.load_weights(s + ".weights.h5")
         #self.default_graph.finalize()
 
     def policy(self, observation, player):

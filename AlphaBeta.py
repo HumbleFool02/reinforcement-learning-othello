@@ -35,7 +35,7 @@ class AlphaBeta():
     def policy(self, board, color, index):
         processedBoard = process(board.board)
         processedBoard = np.array([processedBoard])
-        return self.controller.population[index].model.predict(processedBoard)[0][0]
+        return self.controller.population[index].model.predict(processedBoard, verbose=0)[0][0]
 
     def alphabeta(self, board, depth, alpha, beta, color, index):
         if(depth == 0):

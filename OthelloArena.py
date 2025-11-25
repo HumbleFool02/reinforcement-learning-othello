@@ -43,20 +43,95 @@ class Arena(object):
         
         self.mc.focus_set()
         
+        move_count = 0
+
         while(True):
+            # Player 1 (Black) move
             t1 = time.time()
             self.move(0, 1, 1)
             t2 = time.time()
 
+            move_count += 1
+
+            # Count pieces
+            black_count = 0
+            white_count = 0
+            for i in range(8):
+                for j in range(8):
+                    if self.env.board[i][j] == 1:
+                        black_count += 1
+                    elif self.env.board[i][j] == -1:
+                        white_count += 1
+
+            print(
+                f"Move {move_count} | Black: {black_count} | White: {white_count}")
+
+            # Check if game is over
+            if len(self.env.move_generator()) == 0:
+                self.env.reverse()
+                if len(self.env.move_generator()) == 0:
+                    # Game over
+                    print("\n" + "="*40)
+                    print("GAME OVER!")
+                    print(
+                        f"Final Score - Black: {black_count} | White: {white_count}")
+                    if black_count > white_count:
+                        print(
+                            f"Winner: BLACK by {black_count - white_count} pieces!")
+                    elif white_count > black_count:
+                        print(
+                            f"Winner: WHITE by {white_count - black_count} pieces!")
+                    else:
+                        print("It's a DRAW!")
+                    print("="*40 + "\n")
+                    break
+                self.env.reverse()
+
             time.sleep(max(2-t2+t1, 0))
             self.mc.update()
             self.mc.update_idletasks()
+
+            # Player 2 (White) move
             t1 = time.time()
             self.move(0, 1, -1)
             t2 = time.time()
             
+            move_count += 1
+
+            # Count pieces again
+            black_count = 0
+            white_count = 0
+            for i in range(8):
+                for j in range(8):
+                    if self.env.board[i][j] == 1:
+                        black_count += 1
+                    elif self.env.board[i][j] == -1:
+                        white_count += 1
+
+            print(
+                f"Move {move_count} | Black: {black_count} | White: {white_count}")
+
+            # Check if game is over
+            if len(self.env.move_generator()) == 0:
+                self.env.reverse()
+                if len(self.env.move_generator()) == 0:
+                    # Game over
+                    print("\n" + "="*40)
+                    print("GAME OVER!")
+                    print(
+                        f"Final Score - Black: {black_count} | White: {white_count}")
+                    if black_count > white_count:
+                        print(
+                            f"Winner: BLACK by {black_count - white_count} pieces!")
+                    elif white_count > black_count:
+                        print(
+                            f"Winner: WHITE by {white_count - black_count} pieces!")
+                    else:
+                        print("It's a DRAW!")
+                    print("="*40 + "\n")
+                    break
+                self.env.reverse()
+
             time.sleep(max(2-t2+t1, 0))
             self.mc.update()
             self.mc.update_idletasks()
-            
-            

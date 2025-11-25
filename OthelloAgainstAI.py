@@ -41,7 +41,28 @@ class OthelloSession(object):
                 observation, reward, done, info = self.env.step([x,y])
         
                 if(done):
-                    print("Done!!!")
+                    black_count = 0
+                    white_count = 0
+                    for i in range(8):
+                        for j in range(8):
+                            if self.env.board[i][j] == 1:
+                                black_count += 1
+                            elif self.env.board[i][j] == -1:
+                                white_count += 1
+
+                    print("\n" + "="*40)
+                    print("GAME OVER!")
+                    print(
+                        f"Final Score - Black (You): {black_count} | White (AI): {white_count}")
+                    if black_count > white_count:
+                        print(
+                            f"YOU WIN by {black_count - white_count} pieces!")
+                    elif white_count > black_count:
+                        print(
+                            f"AI WINS by {white_count - black_count} pieces!")
+                    else:
+                        print("It's a DRAW!")
+                    print("="*40 + "\n")
                 else:
                     self.mc.setBoard(observation)
                     self.mc.update() 
@@ -72,3 +93,14 @@ class OthelloSession(object):
         self.mc.update()
         
         self.root.mainloop()
+
+    def print_score(self):
+        black_count = 0
+        white_count = 0
+        for i in range(8):
+            for j in range(8):
+                if self.env.board[i][j] == 1:
+                    black_count += 1
+                elif self.env.board[i][j] == -1:
+                    white_count += 1
+        print(f"Black: {black_count} | White: {white_count}")
