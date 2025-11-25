@@ -96,22 +96,22 @@ TOTAL_EPISODES = 1000
 python OthelloScript.py
 ```
 
-#### Example 2: Continue Training from Episode 500
+#### Example 2: Continue Training from Episode 20
 ```python
 MODE = 't'
 PATH = './weights/'
-WEIGHTS = [500]
+WEIGHTS = [20]
 TOTAL_EPISODES = 1000
 ```
 ```bash
 python OthelloScript.py
 ```
 
-#### Example 3: Play Against AI (Load Episode 1000)
+#### Example 3: Play Against AI (Load Episode 100)
 ```python
 MODE = 'h'
 PATH = './weights/'
-WEIGHTS = [1000]
+WEIGHTS = [100]
 ```
 ```bash
 python OthelloScript.py
@@ -121,7 +121,7 @@ python OthelloScript.py
 ```python
 MODE = 'm'
 PATH = './weights/'
-WEIGHTS = [500, 1000]  # First AI vs Second AI
+WEIGHTS = [20, 100]  # First AI vs Second AI
 ```
 ```bash
 python OthelloScript.py
@@ -155,16 +155,16 @@ python OthelloInterface.py --mode=<mode> --path=<path> [options]
 python OthelloInterface.py \
     --mode=t \
     --path=./weights/ \
-    --total_episodes=1000 \
+    --total_episodes=500 \
     --lr=0.001
 ```
 
-#### Example 2: Resume Training from Episode 500
+#### Example 2: Resume Training from Episode 20
 ```bash
 python OthelloInterface.py \
     --mode=t \
     --path=./weights/ \
-    --load_weight=[500] \
+    --load_weight=[20] \
     --total_episodes=1000
 ```
 
@@ -173,7 +173,7 @@ python OthelloInterface.py \
 python OthelloInterface.py \
     --mode=h \
     --path=./weights/ \
-    --load_weight=[1000]
+    --load_weight=[100]
 ```
 
 #### Example 4: Watch Two AIs Play
@@ -181,7 +181,7 @@ python OthelloInterface.py \
 python OthelloInterface.py \
     --mode=m \
     --path=./weights/ \
-    --load_weight=[500,1000]
+    --load_weight=[20,100]
 ```
 
 #### Example 5: Get Help
