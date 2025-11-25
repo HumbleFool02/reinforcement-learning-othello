@@ -25,6 +25,13 @@ pip install keras tensorflow numpy absl-py
 
 **Note**: Keras requires TensorFlow as a backend. The installation will automatically handle this dependency.
 
+### Download Weight Files
+
+Download the weight files from the google drive and put them in the weights folder.
+
+Drive Link: https://drive.google.com/drive/folders/12D2dK94Z4UAXvU-ou7szbSIuUS5NhuIa?usp=sharing
+
+**Note** : No need to train the model if you download the weight files from drive.
 ---
 
 ## Project Structure
