@@ -372,15 +372,12 @@ Numbers like "0", "50", "100" indicate when weights are saved.
 ### Weight Files Created:
 ```
 weights/
-├── Reversi_0.data-00000-of-00001
-├── Reversi_0.index
-├── Reversi_50.data-00000-of-00001
-├── Reversi_50.index
-├── Reversi_100.data-00000-of-00001
-└── Reversi_100.index
+├── Reversi_-1.weights.h5
+├── Reversi_0.weights.h5
+├── Reversi_50.weights.h5
 ```
 
-Each episode creates two files (.data and .index).
+Each episode creates one file(.weights.h5)
 
 ---
 
@@ -433,22 +430,6 @@ Test its strength.
 python OthelloInterface.py --mode=t --path=./weights/ --load_weight=[1000] --total_episodes=10000
 ```
 Continue training for stronger play.
-
----
-
-## Performance Benchmarks
-
-On typical hardware:
-
-| Episodes | Training Time | Skill Level |
-|----------|---------------|-------------|
-| 100 | 10-20 min | Beginner (loses to random) |
-| 500 | 1-2 hours | Novice (beats random 60%) |
-| 1000 | 2-4 hours | Intermediate (beats random 80%) |
-| 5000 | 10-20 hours | Advanced (strong tactical play) |
-| 10000 | 24-48 hours | Expert (very strong play) |
-
-*Times based on modern CPU. GPU training is 3-5× faster.*
 
 ---
 
@@ -510,6 +491,6 @@ python OthelloInterface.py --mode=h --path=./weights/ --load_weight=[100]
 
 ## References
 
-- Original code adapted from: http://code.activestate.com/recipes/580698-reversi-othello/
+- Original code adapted from: https://github.com/oliverzhang42/reinforcement-learning-othello
 - Keras documentation: https://keras.io/
 - TensorFlow installation: https://www.tensorflow.org/install
